@@ -1,4 +1,19 @@
-project('wave_maker', 'c')
+project('wave_maker',
+        'c',
+        default_options : [
+            'warning_level=3',
+            'werror=false',
+            'debug=true',
+            'c_std=c17',
+            'build.c_std=c17'
+        ],
+        version: '0.1')
 
-lib_sources = files('src/wave_maker.c')
-static_library('wave_maker', lib_sources)
+inc = include_directories('include')
+
+subdir('src')
+subdir('include')
+#subdir('test')
+
+# Process source files
+clangtidy_files = []
