@@ -1,20 +1,28 @@
 #include "wave_maker.h"
+
 #include <stdbool.h>
 #include <stdint.h>
 
-bool generateSawtoothWave(uint32_t* buffer, uint32_t buffer_size, uint32_t frequency, uint32_t amplitude, uint32_t center) {
+bool generateSawtoothWave(uint32_t* buffer, uint32_t buffer_size, waveProperties_t* wave_properties, uint32_t* wave_length) {
     // assert(buffer);
     // assert(buffer_size > 0);
 
-    // Period of the sawtooth wave
-    int32_t period = buffer_size / frequency;
+    // The number of samples needed is the period
+    uint32_t period =  wave_properties->sample_rate / wave_properties->frequency;
 
-    for (int i = 0; i < buffer_size; i++) {
+    if (period == 0 || period > buffer_size) {
+        *wave_length = 0;
+        return false;
+    }
+    
+    *wave_length = period;
+
+    for (uint32_t i = 0; i < buffer_size; i++) {
         // Compute the position within the period
-        int32_t positionInPeriod = i % period;
+        uint32_t positionInPeriod = i % period;
 
         // Generate the sawtooth wave
-        buffer[i] = center + (positionInPeriod * amplitude) / period;
+        buffer[i] = wave_properties->center + (positionInPeriod * wave_properties->amplitude) / period;
     }
     return true;
 }

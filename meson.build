@@ -13,7 +13,7 @@ inc = include_directories('include')
 
 subdir('src')
 subdir('include')
-#subdir('test')
+subdir('test')
 
 # Process source files
 clangtidy_files = []
