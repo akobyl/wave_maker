@@ -16,7 +16,7 @@ testexe = executable('testexe',
                      dependencies : [
                         gtest,
                      ],
-                     link_with : wavemakerlib
+                     link_with : wavemaker_lib
                      )
 
 test('wavemakerlib test', testexe, protocol : 'gtest')
