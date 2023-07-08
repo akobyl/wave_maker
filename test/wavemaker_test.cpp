@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 
-#include "wave_maker.h"
+#include "wavemaker.h"
 
 TEST(SawtoothTests, ZeroAmplitude) {
     uint32_t buffer[100] = {0};

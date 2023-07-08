@@ -1,4 +1,4 @@
-project('wave_maker',
+project('wavemaker',
         'c',
         default_options : [
             'warning_level=3',

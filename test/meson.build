@@ -7,7 +7,7 @@ if not gtest.found()
 endif
 
 tests_src = [
-    'wave_maker_test.cpp',
+    'wavemaker_test.cpp',
 ]
 
 testexe = executable('testexe',

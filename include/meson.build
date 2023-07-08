@@ -1,1 +1,1 @@
-install_headers('wave_maker.h')
+install_headers('wavemaker.h')

@@ -1,4 +1,4 @@
-#include "wave_maker.h"
+#include "wavemaker.h"
 
 #include <stdbool.h>
 #include <stdint.h>
