@@ -1,5 +1,5 @@
 project('wavemaker',
-        'c',
+        ['c', 'cpp'],
         default_options : [
             'warning_level=3',
             'werror=false',

@@ -16,7 +16,8 @@ testexe = executable('testexe',
                      dependencies : [
                         gtest,
                      ],
-                     link_with : wavemaker_lib
+                     link_with : wavemaker_lib,
+                     build_by_default : meson.is_subproject() == false,
                      )
 
 test('wavemakerlib test', testexe, protocol : 'gtest')
